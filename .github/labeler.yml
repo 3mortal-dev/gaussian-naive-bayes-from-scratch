@@ -1,0 +1,70 @@
+# ---------- Per-task labels (by branch name) ----------
+# Works if you name branches like: task-1-data-prep, task-3/metrics, ...
+task-1:
+  - head-branch: ['^task-1', '^task1', 'data-prep']
+
+task-2:
+  - head-branch: ['^task-2', '^task2', 'gnb', 'naive-bayes']
+
+task-3:
+  - head-branch: ['^task-3', '^task3', 'metrics']
+
+task-4:
+  - head-branch: ['^task-4', '^task4', 'experiment']
+
+task-5:
+  - head-branch: ['^task-5', '^task5', 'visuali']
+
+task-6:
+  - head-branch: ['^task-6', '^task6', 'sklearn', 'compare']
+
+task-7:
+  - head-branch: ['^task-7', '^task7', 'questions']
+
+# ---------- Per-task labels (by changed files) ----------
+# Assumes a layout like src/data.py, src/gnb.py, src/metrics.py, ...
+data-preparation:
+  - changed-files:
+      - any-glob-to-any-file: ['src/data*.py', 'src/split*.py']
+
+gnb-implementation:
+  - changed-files:
+      - any-glob-to-any-file: ['src/gnb*.py', 'src/naive_bayes*.py', 'tests/test_gnb*.py']
+
+metrics:
+  - changed-files:
+      - any-glob-to-any-file: ['src/metrics*.py', 'tests/test_metrics*.py']
+
+experiments:
+  - changed-files:
+      - any-glob-to-any-file: ['src/experiments*.py', 'experiments/**']
+
+visualization:
+  - changed-files:
+      - any-glob-to-any-file: ['src/plot*.py', 'src/visual*.py', 'figures/**']
+
+sklearn-comparison:
+  - changed-files:
+      - any-glob-to-any-file: ['src/compare*.py', 'tests/test_sklearn*.py']
+
+# ---------- Deliverables ----------
+notebook:
+  - changed-files:
+      - any-glob-to-any-file: ['**/*.ipynb']
+
+report:
+  - changed-files:
+      - any-glob-to-any-file: ['report/**', '**/*.pdf', '**/*.tex']
+
+documentation:
+  - changed-files:
+      - any-glob-to-any-file: ['**/*.md', 'docs/**']
+
+# ---------- Repo plumbing ----------
+ci:
+  - changed-files:
+      - any-glob-to-any-file: ['.github/**']
+
+dependencies:
+  - changed-files:
+      - any-glob-to-any-file: ['requirements*.txt', 'pyproject.toml', 'environment.yml']
