@@ -42,7 +42,11 @@ where:
 
 $$\log P(x_j \mid c) = -\frac{1}{2} \log(2\pi\sigma^2_{cj}) - \frac{(x_j - \mu_{cj})^2}{2\sigma^2_{cj}}$$
 
-**Variance smoothing:** If a feature is constant inside a class, its variance is $0$ and the formula divides by zero. Add a small value $\epsilon = \text{var\_smoothing} \times (\text{largest variance of any feature in the whole training set } X)$ to all variances. The default `var_smoothing` is $10^{-9}$ (`1e-9`).
+**Variance smoothing:** If a feature is constant inside a class, its variance is $0$ and the formula divides by zero. Add a small value
+
+$$\epsilon = \alpha \times \max_j \mathrm{Var}(X_j)$$
+
+to all variances, where $\alpha$ is `var_smoothing` (the default is $10^{-9}$, i.e. `1e-9`) and $\max_j \mathrm{Var}(X_j)$ is the largest variance of any feature in the whole training set $X$.
 
 ---
 
