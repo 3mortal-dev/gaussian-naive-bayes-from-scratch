@@ -52,6 +52,7 @@ def main():
 
     dataset_metrics(bunch.data, bunch.target, axes[0])
     dataset_metrics(s_X, s_y, axes[1])
+    fig.savefig("reports/figures/heatmap.png")
     plt.show()
 
 
