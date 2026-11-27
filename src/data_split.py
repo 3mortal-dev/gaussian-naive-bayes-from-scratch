@@ -1,7 +1,6 @@
 from os import name
 
 import numpy as np
-from sklearn.datasets import load_breast_cancer
 
 # The logic behind `stratified` spliting
 # each class must appear in the train and test sets in the same proportion (freq/len()) as in the full data
@@ -33,23 +32,3 @@ def train_test_split(X, y, test_size=0.2, seed=42):
     rand_seed.shuffle(test_list)
 
     return X[train_list], X[test_list], y[train_list], y[test_list]
-
-
-# if the python file gets executed normally the __name__ will equal to __main__
-# if called as a module __name__ will be module's name
-if __name__ == "__main__":
-
-# returns a `Bunch` object not pd.DataFrame
-    bunch = load_breast_cancer(as_frame=True)
-
-# now pandas data frame as normal
-    df = bunch.frame # type: ignore
-    print(df.head())
-
-
-    X_train, X_test, y_train, y_test = train_test_split(bunch.data, bunch.target) # type: ignore
-    print(X_train.shape, X_test.shape, y_train.shape, y_test.shape)
-
-    print("Full :", np.bincount(bunch.target) / len(bunch.target)) # type: ignore
-    print("Train:", np.bincount(y_train) / len(y_train))
-    print("Test :", np.bincount(y_test) / len(y_test))
