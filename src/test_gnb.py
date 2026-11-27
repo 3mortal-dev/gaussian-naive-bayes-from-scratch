@@ -1,6 +1,7 @@
 from sklearn.datasets import load_breast_cancer
-from sklearn.metrics import accuracy_score
+from metrics import accuracy_score, confusion_matrix
 
+import numpy as np
 from data_split import train_test_split
 from gaussian_nb import GaussianNB
 
@@ -30,6 +31,7 @@ def main():
     print(f"Training samples: {len(y_train)}")
     print(f"Testing samples: {len(y_test)}")
     print(f"Accuracy: {accuracy:.4f}")
+    print(confusion_matrix(y_test, y_pred, np.unique(y)))
 
 
 if __name__ == "__main__":
