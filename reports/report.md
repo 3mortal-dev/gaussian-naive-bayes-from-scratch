@@ -25,4 +25,23 @@ Macro (P, R, F1): (1.0, 1.0, 1.0)
 
 # Task 5
 
+# Task 6
+```
+--- Custom Model ---
+Training samples: 456
+Testing samples: 113
+Accuracy: 0.9381
+Confusion Matrix:
+[[40.  2.]
+ [ 5. 66.]]
+
+--- Parameter Comparison ---
+Means: True
+Variances: True
+Priors: True
+
+Probabilities match: True
+Prediction agreement: 100.00%
+```
+
 # Task 7
