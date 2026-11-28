@@ -39,16 +39,6 @@ class GaussianNB:
         log_prob = num - 0.5 * np.log(2 * np.pi * self.variances_)
         return log_prob.sum(axis=2)
 
-    def predict_proba(self, X):
-        # P(x, y)
-        joint_log_prob = self._log_gaussian(X) + np.log(self.priors_)
-
-
-        # P(x, y) for the winning class
-        max_log = np.max(joint_log_prob, axis=1, keepdims=True)
-        exp_shifted = np.exp(joint_log_prob - max_log)
-        return exp_shifted / np.sum(exp_shifted, axis=1, keepdims=True)
-
     def predict(self, X):
         X = np.asarray(X)
 
