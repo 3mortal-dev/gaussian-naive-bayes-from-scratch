@@ -4,6 +4,10 @@ from sklearn.datasets import load_breast_cancer
 from gaussian_nb import GaussianNB
 from data_split import train_test_split
 
+from pathlib import Path
+
+Path("reports/figures/features").mkdir(parents=True, exist_ok=True)
+
 
 def gaussian_pdf(x, mean, var):
     return (1.0 / np.sqrt(2.0 * np.pi * var)) * np.exp(-0.5 * ((x - mean) ** 2) / var)
